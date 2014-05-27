@@ -1,29 +1,28 @@
 package net.obviam.starassault.screens;
 
-import com.badlogic.gdx.graphics.GL20;
-import net.obviam.starassault.controller.BobController;
-import net.obviam.starassault.model.World;
-import net.obviam.starassault.view.WorldRenderer;
-
 import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.GL20;
+import net.obviam.starassault.controller.WorldController;
+import net.obviam.starassault.model.World;
+import net.obviam.starassault.view.WorldRenderer;
 
 public class GameScreen implements Screen, InputProcessor {
 
 	private World 			world;
 	private WorldRenderer 	renderer;
-	private BobController	controller;
+	private WorldController	controller;
 	
 	private int width, height;
 	
 	@Override
 	public void show() {
 		world = new World();
-		renderer = new WorldRenderer(world, false);
-		controller = new BobController(world);
+		renderer = new WorldRenderer(world, true);
+		controller = new WorldController(world);
 		Gdx.input.setInputProcessor(this);
 	}
 
@@ -88,8 +87,6 @@ public class GameScreen implements Screen, InputProcessor {
 			controller.jumpReleased();
 		if (keycode == Keys.X)
 			controller.fireReleased();
-		if (keycode == Keys.D)
-			renderer.setDebug(!renderer.isDebug());
 		return true;
 	}
 
