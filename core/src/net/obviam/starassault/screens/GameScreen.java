@@ -1,14 +1,15 @@
 package net.obviam.starassault.screens;
 
+import net.obviam.starassault.controller.WorldController;
+import net.obviam.starassault.model.World;
+import net.obviam.starassault.view.WorldRenderer;
+
 import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import net.obviam.starassault.controller.WorldController;
-import net.obviam.starassault.model.World;
-import net.obviam.starassault.view.WorldRenderer;
 
 public class GameScreen implements Screen, InputProcessor {
 
@@ -129,13 +130,13 @@ public class GameScreen implements Screen, InputProcessor {
 	}
 
 	@Override
-	public boolean scrolled(int amount) {
+	public boolean mouseMoved(int x, int y) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean mouseMoved(int screenX, int screenY) {
+	public boolean scrolled(int amount) {
 		// TODO Auto-generated method stub
 		return false;
 	}
