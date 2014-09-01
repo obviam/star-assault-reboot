@@ -93,6 +93,10 @@ public class BobController {
 	
 	/** The main update method **/
 	public void update(float delta) {
+		//Neglect large deltas to prevent bob falling through floor 
+		if (delta > 0.05f)
+			return;
+		
 		// Processing the input - setting the states of Bob
 		processInput();
 		
